@@ -1,7 +1,7 @@
 # Hotspot → Dentist → Listings Pipeline
 
 ## Overview
-This service provides a FastAPI + PostgreSQL (PostGIS-ready) pipeline to:
+This service provides a FastAPI + SQLite (default) or PostgreSQL pipeline to:
 1. Generate grid points for a target area.
 2. Find hotspots using the official Google Places API.
 3. Count dentists around hotspots using text search queries.
@@ -9,23 +9,23 @@ This service provides a FastAPI + PostgreSQL (PostGIS-ready) pipeline to:
 5. Rank listings by proximity and business signals.
 
 ## Requirements
-- Python 3.11
-- PostgreSQL (PostGIS recommended)
+- Python 3.13
+- SQLite (default) or PostgreSQL (optional)
 - Google Places API key (Nearby Search / Text Search / Place Details)
 - Optional: Google Geocoding API key (if geocoding addresses)
 
 ## Setup
 ```bash
 python -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate  # Windows: .\\.venv\\Scripts\\Activate.ps1
 pip install -r requirements.txt
 ```
 
-Create a database and update `.env` with your credentials.
+Create a database and update `.env` with your credentials (SQLite is the default).
 
 ## Environment Variables
 ```bash
-DATABASE_URL=postgresql+psycopg2://postgres:postgres@localhost:5432/hotspot
+DATABASE_URL=sqlite:///./hotspot.db
 GOOGLE__API_KEY=your_key_here
 GOOGLE__REQUEST_TIMEOUT_S=10
 GOOGLE__MAX_RETRIES=5

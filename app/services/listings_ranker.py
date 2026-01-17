@@ -6,7 +6,6 @@ from sqlalchemy.orm import Session
 
 from app.core.config import get_settings
 from app.models.hotspot import Hotspot
-from app.models.hotspot_dentist import HotspotDentist
 from app.models.listing import Listing
 from app.models.listing_score import ListingScore
 from app.utils.geo import haversine_distance_m

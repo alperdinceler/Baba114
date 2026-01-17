@@ -29,7 +29,7 @@ class Settings(BaseSettings):
     env: str = "dev"
 
     database_url: str = Field(
-        default="postgresql+psycopg2://postgres:postgres@localhost:5432/hotspot",
+        default="sqlite:///./hotspot.db",
         description="Database URL",
     )
 

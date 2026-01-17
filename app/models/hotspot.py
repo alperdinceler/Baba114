@@ -1,5 +1,4 @@
-from sqlalchemy import Column, Float, ForeignKey, Integer
-from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy import JSON, Column, Float, ForeignKey, Integer
 from sqlalchemy.orm import relationship
 
 from app.db.base import Base
@@ -13,6 +12,6 @@ class Hotspot(Base):
     lat = Column(Float, nullable=False)
     lng = Column(Float, nullable=False)
     crowd_score = Column(Float, nullable=False)
-    meta_json = Column(JSONB, nullable=True)
+    meta_json = Column(JSON, nullable=True)
 
     area = relationship("Area", backref="hotspots")

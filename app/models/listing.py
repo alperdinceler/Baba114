@@ -1,5 +1,4 @@
-from sqlalchemy import Column, Float, Integer, String
-from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy import JSON, Column, Float, Integer, String
 
 from app.db.base import Base
 
@@ -16,4 +15,4 @@ class Listing(Base):
     address = Column(String(500), nullable=True)
     lat = Column(Float, nullable=True)
     lng = Column(Float, nullable=True)
-    raw_json = Column(JSONB, nullable=True)
+    raw_json = Column(JSON, nullable=True)
